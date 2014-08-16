@@ -4,7 +4,7 @@ Take an screenshot (JPG) of a Intel Map using a map link like https://www.ingres
 
 Useful if you are mobile with your smartphone and not have a PC
 
-IIRDS - 0.5 beta
+IIRDS - 0.5.1 beta
 
 by Agent VisX (E) - Venezuela
 

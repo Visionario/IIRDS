@@ -1,5 +1,5 @@
 #!/bin/bash
-# IIRDS - 0.5 beta
+# IIRDS - 0.5.1 beta
 # by Agent VisX (E) - Venezuela
 # If you like this please say hi!! on intel COMM
 #
@@ -10,7 +10,7 @@
 #Parameters
 # -w width, default $SCREEN_W
 # -h height, default $SCREEN_H
-# -l (Map link) default $HOMEPAGE
+# -l (Map link) default $HOMEPAGE (please use quotes)
 # -d delay to capture (segs) 
 # -e email to send screenshot, default $SENDTO
 # 
@@ -31,7 +31,7 @@ SCREEN_H=1080
 SCREEN_D=16
 
 #Default homepage (param -l)
-HOMEPAGE="YOUR-DEFAULT-HOMPAGE"
+HOMEPAGE="YOUR-DEFAULT-HOMEPAGE"
 
 #Secs to wait before screenshot
 DELAYTOCAPTURE=70
@@ -44,7 +44,7 @@ SENDTO="YOUREMAIL@YOURDOMAIN.COM"
 
 
 #Process arguments
-while getopts ":w:h:l:e:" opt; do
+while getopts ":w:h:d:l:e:" opt; do
   case $opt in
     w)
       echo "-w $OPTARG" >&2
@@ -123,14 +123,14 @@ sleep $DELAYTOCAPTURE
 
 #Capture screen (screenshot)
 echo "Screenshot ${SCREEN_W}x${SCREEN_H}"
-FILENAME="ingress_screenshot_${SCREEN_W}x${SCREEN_H}-`date +"%Y%m%d%k%M%S"`".jpg
+FILENAME="iirds_${SCREEN_W}x${SCREEN_H}-`date +"%Y%m%d%k%M%S"`".jpg
 DISPLAY=:99 import -window root ${FILENAME} -quality ${JPG_QUALITY}
 
 #Kill process
 kill $BROWSER_PID
-sleep 3
+sleep 4
 kill $XVFB_PID
-sleep 3
+sleep 4
 
 # Remove lock file
 rm -f running

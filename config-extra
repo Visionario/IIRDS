@@ -1,0 +1,15 @@
+default-encoding=ISO-8859-1
+last-window-state=MIDORI_WINDOW_FULLSCREEN
+load-on-startup=MIDORI_STARTUP_HOMEPAGE
+show-crash-dialog=false
+location-entry-search=https://duckduckgo.com/?q=%s
+open-new-pages-in=MIDORI_NEW_PAGE_CURRENT
+open-tabs-next-to-current=false
+enable-spell-checking=false
+enable-html5-database=true
+enable-html5-local-storage=true
+enable-offline-web-application-cache=true
+maximum-cookie-age=365
+maximum-history-age=365
+identify-as=MIDORI_IDENT_GENUINE
+user-agent=Mozilla/5.0 (X11; Linux) AppleWebKit/537.6+ Midori/0.4

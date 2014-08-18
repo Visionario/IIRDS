@@ -1,10 +1,17 @@
 Ingress Intel Remote Desktop Screenshot (IIRDS)
 ====================================
-Take an screenshot (JPG) of a Intel Map using a map link like https://www.ingress.com/intel?ll=8.289024,-62.742648&z=14 and send to you.
+##English - (PARA ESPAÑOL VAYA MAS ABAJO)
 
-Useful if you are mobile with your smartphone and not have a PC
+###With IIRDS you can:
+a) Take an screenshot (remotely or not) of an Ingress Intel Map at any* resolution
 
-IIRDS - 0.5.1 beta
+b) Do a timelapse of an Ingress Intel Map
+
+c) Send the screenshot to you via email
+
+Useful if you are mobile with your smartphone and do not have a near PC
+
+IIRDS - 0.6.5 beta
 
 by Agent VisX (E) - Venezuela
 
@@ -40,31 +47,62 @@ Xvfb
 See `iirds.sh` and change 
 ```
 HOMEPAGE="YOUR-DEFAULT-HOMPAGE"
-SENDTO="YOUREMAIL@YOURDOMAIN.COM"
 ```
 
-If you need other resolution by default please change
+If you need other default resolution please find and change
 
 ```
 SCREEN_W=1920
 SCREEN_H=1080
 ```
 
-Test it on 4096x4096 it´s so cool!!
+Test it on 4096x4096 it´s so cool, 10000x5000 is awesome
 
 ### Options
 ```
 	-w width, default $SCREEN_W
 	-h height, default $SCREEN_H
-	-l (Map link) default $HOMEPAGE
+	-l (Map link) default $HOMEPAGE (please use quotes)
 	-d delay to capture (segs) 
-	-e email to send screenshot, default $SENDTO
+	-e email to send screenshot, empty for NO SEND email
+	-t Timelapse, argument is number for minutes. Default $MINUTES=0
+	-q Quality of jpg 100 max, recomended for view in smartphone 30, for timelapse >70, best is 100
 ```
+
+### Examples:
+####Screeshot mode
+`./iirds-TEST.sh -l "https://www.ingress.com/intel?ll=10.206794,-68.006417&z=16"`
+
+Take a screenshot of that link, using default resolution 1920x1080 and wait default delay to capture of 90 secs and 30 quality of JPG 
+
+
+`./iirds-TEST.sh -w 3840 -h 2160 -d 120 -q 100 -l "https://www.ingress.com/intel?ll=10.498074,-66.886185&z=17"`
+
+Screenshot with resolution 3840x2160, delay to capture of 120 secs and quality of JPG 100
+
+
+`./iirds-TEST.sh -w 4500 -h 8000 -d 240 -q 100 -l "https://www.ingress.com/intel?ll=10.652987,-71.635204&z=16"`
+
+Screenshot, portrait orientation useful for vertical cities or places like this map, Maracaibo city, Venezuela 
+
+
+`./iirds-TEST.sh -w 1080 -h 1080 -d 90 -q 75 -l "https://www.ingress.com/intel?ll=10.472169,-66.897366&z=17"`
+
+Square orientation, diagonal places like, Paseo Los Proceres, Caracas, Venezuela
+
+
+`./iirds-TEST.sh -w 1080 -h 1080 -d 90 -q 75 -e YOUREMAIL@YOURDOMAIN.COM -l "https://www.ingress.com/intel?ll=10.472169,-66.897366&z=17"`
+Like above but sending screenshot via email to YOUREMAIL@YOURDOMAIN.COM 
+
+
+
+####Timelapse mode
+`./iirds-TEST.sh -w 800 -h 1920 -d 90 -q 100 -t 120 -l "MAP MAP MAP MAP"`
+`-t 120` Take screenshots during 120 minutes. It will take a screnshot every `90` seconds
+
 
 ### Planning and future...
 For Raspberry Pi, minimal use of resources and memory
-
-Timelapse... i'm working on it
 
 Translate all code to Python to run on flask webserver, actually it works, please see below:
 
@@ -125,5 +163,162 @@ if __name__ == "__main__":
 
 
 
-### Some notes...
-Se habla español
+
+
+
+# INSTRUCCIONES EN ESPAÑOL
+
+Ingress Intel Remote Desktop Screenshot (IIRDS)
+====================================
+###Con IIRDS usted puede:
+a) Tomar una imagen de la pantalla remotamente (o no) de un mapa de Ingress virtualmente a cualquier resolución.
+
+b) Hacer una "timelapse" compuesto de varias imágenes tomadas a intervalos periódicos. Muy útil para ver los cambios a avances de una ciudad o un lugar específico y despues crear un video 
+
+c) Enviarse una copia de la imagen capturada via email. Muy útil cuando se esta en sitios remotos donde no se tiene acceso a una PC para ejecutar la versión Desktop de Ingress Intel Map 
+
+IIRDS - 0.6.5 beta
+Soy el agente VisX (E) de Venezuela. Se te gusta este programa envíame un saludo por el COMM
+
+NOTA IMPORTANTE: IIRDS fue originalmente diseñado para mi 'Raspberry Pi' y esta muy optimizado para el. Ha sido probado en Ubuntu, Lubuntu y hasta dentro de máquinas virtuales con sorprendentes resultados.
+
+# Requerimientos
+Navegador/ Browser Midori
+
+`sudo apt-get install midori`
+
+ImageMagick
+
+`sudo apt-get install imagemagick`
+
+
+Xvfb
+
+`sudo apt-get install xvfb`
+
+# Instalando...
+1. Instale el browse Midori y ejecútelo pro primera vez.
+2. Ingrese a http://ingress.com/intel con sus credenciales y ejecute cualquier mapa para asegurar que funciona correctamente.
+3. Cierre Midori.
+4. Copie el directorio `~/.config/midori` con el nuevo nombre `midori_config_base`, esto ya incluirá sus credenciales.
+
+
+# Uso
+
+###Configuración
+Vea en `iirds.sh` y cambie si es necesario
+```
+HOMEPAGE="YOUR-DEFAULT-HOMPAGE"
+```
+
+Si requieres de otra resolución por defecto puedes cambiar los valores:
+
+```
+SCREEN_W=1920
+SCREEN_H=1080
+```
+
+Prúebalo en 4096x4096 y te sorprenderás pero a 10.000x5.000 es realmente impresionante
+
+### Opciones y parámetros
+```
+	-w width, default $SCREEN_W (Ancho de la pantalla)
+	-h height, default $SCREEN_H (Alto de la pantalla)
+	-l (Map link) default $HOMEPAGE (please use quotes) (Homepage por defecto )
+	-d delay to capture (segs), (Tiempo de espera antes de hacer el screenshot )
+	-e email to send screenshot, empty for NO SEND email, (email para el envío)
+	-t Timelapse, argument is number for minutes. Default $MINUTES=0. (Si es un timelapse, este valor indica capturas durante x minutos)
+	-q Quality of jpg 100 max, recomended for view in smartphone 30, for timelapse >70, best is 100 (Calidad de compresión)
+```
+
+### Ejemplos:
+####Modo Screeshot 
+`./iirds-TEST.sh -l "https://www.ingress.com/intel?ll=10.206794,-68.006417&z=16"`
+
+Toma una captura del mapa en ese enlace a una resolución por defecto de espera el tiempo de captura tambien por defecto a una calidad de imagen por defecto 
+
+
+`./iirds-TEST.sh -w 3840 -h 2160 -d 120 -q 100 -l "https://www.ingress.com/intel?ll=10.498074,-66.886185&z=17"`
+
+Captura a resolucion de 3840x2160, tiempo de espera de 120 segundos y calidad de imagen de 100
+
+
+`./iirds-TEST.sh -w 4500 -h 8000 -d 240 -q 100 -l "https://www.ingress.com/intel?ll=10.652987,-71.635204&z=16"`
+
+Captura en orientación vertical, muy útil para ciudades con esa orientación como Maracaibo, Venezuela (el ejemplo)
+
+
+`./iirds-TEST.sh -w 1080 -h 1080 -d 90 -q 75 -l "https://www.ingress.com/intel?ll=10.472169,-66.897366&z=17"`
+
+Resolución cuadrada, mismo alto y ancho, para lugares como Paseo Los Proceres, Caracas, Venezuela
+
+
+`./iirds-TEST.sh -w 1080 -h 1080 -d 90 -q 75 -e YOUREMAIL@YOURDOMAIN.COM -l "https://www.ingress.com/intel?ll=10.472169,-66.897366&z=17"`
+Igual que la anterior pero con la dirección de email para recibir la captura
+
+
+
+####Timelapse mode
+`./iirds-TEST.sh -w 800 -h 1920 -d 90 -q 100 -t 120 -l "MAP MAP MAP MAP"`
+
+`-t 120` Toma una captura durante 120 minutes cada `90` seconds
+
+
+### Planes y futuro...
+Disminuir el consumo de recursos para Raspberry Pi
+
+Traducir todo el código a Python para incluir todo conjuntamente con el Webserver Flask, actualmente funciona con el script dado mas abajo
+
+### Ejecutando IIRDS con Webserver Flask en Python
+
+Cree un archivo python con el siguiente código:
+
+```
+from flask import Flask, request
+import subprocess
+
+app = Flask(__name__)
+
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+		map=request.form['map']
+		do_screenshot_noecho(map)
+		return "Processing map " + map + "</br> sending to you in 90 secs"
+
+    if request.method == 'GET':
+		h=request.args.get('map', '')
+		z=request.args.get('z', '')
+		return (h + " " + z + '''
+			<h3><a>Ingress Intel Remote Desktop Screenshot (IIRDS)</a></h3>
+			<form method="post" action="">
+			<input name="map" style="width: 400px;" type="text" maxlength="255" value="" /> </br>
+			<input type="submit" name="submit" value="Screenshot" />
+			<div id="footer">
+				Generated by IIRDS
+			</div>
+			''')
+
+def do_screenshot_noecho(map):
+	cmd = "./iirds.sh -l " + map
+	p = subprocess.Popen(cmd , shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	p.wait()
+	
+
+	
+def do_screenshot(map):
+	cmd = "./iirds.sh -l " + map
+	p = subprocess.Popen(cmd, shell=True, stderr=subprocess.PIPE)
+	while True:
+		out = p.stderr.read(1)
+		if out == '' and p.poll() != None:
+			break
+		if out != '':
+			sys.stdout.write(out)
+			sys.stdout.flush()		
+			
+	
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000, debug=True)
+```

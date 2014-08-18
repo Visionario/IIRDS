@@ -71,38 +71,38 @@ Test it on 4096x4096 it´s so cool, 10000x5000 is awesome
 
 ### Examples:
 ####Screeshot mode
-`./iirds-TEST.sh -l "https://www.ingress.com/intel?ll=10.206794,-68.006417&z=16"`
+`./iirds.sh -l "https://www.ingress.com/intel?ll=10.206794,-68.006417&z=16"`
 
 Take a screenshot of that link, using default resolution 1920x1080 and wait default delay to capture of 90 secs and 30 quality of JPG 
 
 
 
-`./iirds-TEST.sh -w 3840 -h 2160 -d 120 -q 100 -l "https://www.ingress.com/intel?ll=10.498074,-66.886185&z=17"`
+`./iirds.sh -w 3840 -h 2160 -d 120 -q 100 -l "https://www.ingress.com/intel?ll=10.498074,-66.886185&z=17"`
 
 Screenshot with resolution 3840x2160, delay to capture of 120 secs and quality of JPG 100
 
 
 
-`./iirds-TEST.sh -w 4500 -h 8000 -d 240 -q 100 -l "https://www.ingress.com/intel?ll=10.652987,-71.635204&z=16"`
+`./iirds.sh -w 4500 -h 8000 -d 240 -q 100 -l "https://www.ingress.com/intel?ll=10.652987,-71.635204&z=16"`
 
 Screenshot, portrait orientation useful for vertical cities or places like this map, Maracaibo city, Venezuela 
 
 
 
-`./iirds-TEST.sh -w 1080 -h 1080 -d 90 -q 75 -l "https://www.ingress.com/intel?ll=10.472169,-66.897366&z=17"`
+`./iirds.sh -w 1080 -h 1080 -d 90 -q 75 -l "https://www.ingress.com/intel?ll=10.472169,-66.897366&z=17"`
 
 Square orientation, diagonal places like, Paseo Los Proceres, Caracas, Venezuela
 
 
 
-`./iirds-TEST.sh -w 1080 -h 1080 -d 90 -q 75 -e YOUREMAIL@YOURDOMAIN.COM -l "https://www.ingress.com/intel?ll=10.472169,-66.897366&z=17"`
+`./iirds.sh -w 1080 -h 1080 -d 90 -q 75 -e YOUREMAIL@YOURDOMAIN.COM -l "https://www.ingress.com/intel?ll=10.472169,-66.897366&z=17"`
 
 Like above but sending screenshot via email to YOUREMAIL@YOURDOMAIN.COM 
 
 
 
 ####Timelapse mode
-`./iirds-TEST.sh -w 800 -h 1920 -d 90 -q 100 -t 120 -l "MAP MAP MAP MAP"`
+`./iirds.sh -w 800 -h 1920 -d 90 -q 100 -t 120 -l "MAP MAP MAP MAP"`
 
 `-t 120` Take screenshots during 120 minutes. It will take a screnshot every `90` seconds
 
@@ -239,38 +239,38 @@ Prúebalo en 4096x4096 y te sorprenderás pero a 10.000x5.000 es realmente impre
 
 ### Ejemplos:
 ####Modo Screeshot 
-`./iirds-TEST.sh -l "https://www.ingress.com/intel?ll=10.206794,-68.006417&z=16"`
+`./iirds.sh -l "https://www.ingress.com/intel?ll=10.206794,-68.006417&z=16"`
 
 Toma una captura del mapa en ese enlace a una resolución por defecto de espera el tiempo de captura tambien por defecto a una calidad de imagen por defecto 
 
 
 
-`./iirds-TEST.sh -w 3840 -h 2160 -d 120 -q 100 -l "https://www.ingress.com/intel?ll=10.498074,-66.886185&z=17"`
+`./iirds.sh -w 3840 -h 2160 -d 120 -q 100 -l "https://www.ingress.com/intel?ll=10.498074,-66.886185&z=17"`
 
 Captura a resolucion de 3840x2160, tiempo de espera de 120 segundos y calidad de imagen de 100
 
 
 
-`./iirds-TEST.sh -w 4500 -h 8000 -d 240 -q 100 -l "https://www.ingress.com/intel?ll=10.652987,-71.635204&z=16"`
+`./iirds.sh -w 4500 -h 8000 -d 240 -q 100 -l "https://www.ingress.com/intel?ll=10.652987,-71.635204&z=16"`
 
 Captura en orientación vertical, muy útil para ciudades con esa orientación como Maracaibo, Venezuela (el ejemplo)
 
 
 
-`./iirds-TEST.sh -w 1080 -h 1080 -d 90 -q 75 -l "https://www.ingress.com/intel?ll=10.472169,-66.897366&z=17"`
+`./iirds.sh -w 1080 -h 1080 -d 90 -q 75 -l "https://www.ingress.com/intel?ll=10.472169,-66.897366&z=17"`
 
 Resolución cuadrada, mismo alto y ancho, para lugares como Paseo Los Proceres, Caracas, Venezuela
 
 
 
-`./iirds-TEST.sh -w 1080 -h 1080 -d 90 -q 75 -e YOUREMAIL@YOURDOMAIN.COM -l "https://www.ingress.com/intel?ll=10.472169,-66.897366&z=17"`
+`./iirds.sh -w 1080 -h 1080 -d 90 -q 75 -e YOUREMAIL@YOURDOMAIN.COM -l "https://www.ingress.com/intel?ll=10.472169,-66.897366&z=17"`
 
 Igual que la anterior pero con la dirección de email para recibir la captura
 
 
 
 ####Modo Timelapse
-`./iirds-TEST.sh -w 800 -h 1920 -d 90 -q 100 -t 120 -l "MAP MAP MAP MAP"`
+`./iirds.sh -w 800 -h 1920 -d 90 -q 100 -t 120 -l "MAP MAP MAP MAP"`
 
 `-t 120` Toma una captura durante 120 minutes cada `90` seconds
 

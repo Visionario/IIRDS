@@ -1,5 +1,5 @@
 #!/bin/bash
-# IIRDS - 0.6.5 beta
+# IIRDS - 0.6.6 beta
 # by Ingress Agent VisX (E) - Venezuela
 # If you like this please say hi!! on intel COMM
 #
@@ -105,7 +105,7 @@ SCREENSHOTSCOUNTER=1
 
 #Prepare Virtual Screen 
 echo "Starting Xvfb ${SCREEN_W}x${SCREEN_H}x${SCREEN_D}"
-Xvfb :99 -screen 0 ${SCREEN_W}x${SCREEN_H}x${SCREEN_D} -noreset -nolisten tcp & XVFB_PID=$!
+Xvfb :99 -screen 0 ${SCREEN_W}x${SCREEN_H}x${SCREEN_D} -noreset -nolisten tcp > /dev/null & XVFB_PID=$!
 
 echo "."
 echo "PID Xvfb:======> $XVFB_PID"
@@ -134,7 +134,7 @@ do
 
 	#Launch Midori Browser
 	echo "Starting Midori Browser... (${SCREEN_W}x${SCREEN_H}x${SCREEN_D})"
-	DISPLAY=:99 midori -c "$CONFIGDESTDIR" -e Fullscreen -e Navigationbar -e Statusbar & BROWSER_PID=$!
+	DISPLAY=:99 midori -c "$CONFIGDESTDIR" -e Fullscreen -e Navigationbar -e Statusbar > /dev/null & BROWSER_PID=$!
 	echo "."
 	echo "PID Browser:=====> $BROWSER_PID"
 	echo "."
@@ -149,6 +149,10 @@ do
 	
 	#Capture and Crop
 	DISPLAY=:99 import -window root -crop $(($SCREEN_W - $OFFSET_X))x$(($SCREEN_H - $OFFSET_Y))+0+10 -gravity Center +repage ${FILENAME} -quality ${JPG_QUALITY}
+
+	# Remove Agent, Level and Faction data
+	convert ${FILENAME} -fill black -draw "rectangle 0,$(($SCREEN_H - (($OFFSET_Y*2)-130))) $SCREEN_H,$SCREEN_H "  -fill black -draw "rectangle 0,0 300,50 " X_${FILENAME}
+
 	
 	#Increments screenshot counter
 	SCREENSHOTSCOUNTER=$((SCREENSHOTSCOUNTER+1))

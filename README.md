@@ -11,7 +11,7 @@ c) Send the screenshot to you via email
 
 Useful if you are mobile with your smartphone and do not have a near PC
 
-IIRDS - 0.6.5 beta
+IIRDS - 0.6.6 beta
 
 by Agent VisX (E) - Venezuela
 
@@ -70,7 +70,7 @@ Test it on 4096x4096 it´s so cool, 10000x5000 is awesome
 ```
 
 ### Examples:
-####Screeshot mode
+####Screenshot mode
 `./iirds.sh -l "https://www.ingress.com/intel?ll=10.206794,-68.006417&z=16"`
 
 Take a screenshot of that link, using default resolution 1920x1080 and wait default delay to capture of 90 secs and 30 quality of JPG 
@@ -238,7 +238,7 @@ Prúebalo en 4096x4096 y te sorprenderás pero a 10.000x5.000 es realmente impre
 ```
 
 ### Ejemplos:
-####Modo Screeshot 
+####Modo Screenshot 
 `./iirds.sh -l "https://www.ingress.com/intel?ll=10.206794,-68.006417&z=16"`
 
 Toma una captura del mapa en ese enlace a una resolución por defecto de espera el tiempo de captura tambien por defecto a una calidad de imagen por defecto 
